@@ -1,6 +1,6 @@
 {
   "name": "egg-mp-session",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Egg 的微信小程序登录状态管理插件",
   "eggPlugin": {
     "name": "mpSession",

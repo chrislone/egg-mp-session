@@ -40,12 +40,71 @@ exports.mpSession = {
 };
 ```
 
+#### 登录
+
+```js
+async login(ctx) {
+  const { code } = ctx.request.body;
+  const loginResult = await ctx.mpSession.login({ code });
+
+  ctx.body = {
+    tokenId: loginResult.tokenId,
+  };
+}
+```
+
+#### 获取信息
+
+```js
+async info(ctx) {
+  /**
+  * => {openid=xxxxxxxx, session_id=xxxxxxxx}
+  */
+  const userInfo = await ctx.mpSession.info();
+
+  ctx.body = {
+    userInfo
+  };
+}
+```
+
+#### 更新用户信息过期时间
+
+```js
+async update(ctx) {
+  /**
+  * 返回 redis egg-redis 的 pexpire 操作结果
+  * ref：https://redis.io/commands/pexpire
+  */
+  const redisStatus = await ctx.mpSession.update();
+
+  ctx.body = {
+    status: redisStatus
+  };
+}
+```
+
+#### 退出登录，删除 redis 中的用户信息
+
+```js
+async logout(ctx) {
+  /**
+  * 返回 redis egg-redis 的 del 操作结果
+  * ref：https://redis.io/commands/del
+  */
+  const redisStatus = await ctx.mpSession.logout();
+
+  ctx.body = {
+    status: redisStatus
+  };
+}
+```
+
 ## Configuration
 
 ```js
 // {app_root}/config/config.default.js
-exports.mpSession = {
-};
+exports.mpSession = {};
 ```
 
 see [config/config.default.js](config/config.default.js) for more detail.
