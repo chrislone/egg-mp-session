@@ -39,7 +39,7 @@ module.exports = {
         dataType: 'json',
       });
 
-      if (result.data.errorCode === 0) {
+      if (result.data.openid) {
         const redisKey = `${Date.now()}-${uid.sync(24)}`;
         await redisInstance.set(
           redisKey,

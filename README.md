@@ -56,7 +56,7 @@ see [config/config.default.js](config/config.default.js) for more detail.
 
 ## Questions & Suggestions
 
-Please open an issue [here](https://github.com/chrislone/issues).
+Please open an issue [here](https://github.com/chrislone/egg-mp-session/issues).
 
 ## License
 
