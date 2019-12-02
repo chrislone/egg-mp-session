@@ -27,7 +27,7 @@ Description here.
 ## Install
 
 ```bash
-$ npm i egg-mp-session --save-dev
+$ npm i egg-mp-session --save
 ```
 
 ## Usage
